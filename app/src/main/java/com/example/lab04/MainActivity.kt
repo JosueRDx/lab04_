@@ -52,6 +52,7 @@ fun MainScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LazyRowExample()
+        CheckboxExample()
     }
 
 }
@@ -65,6 +66,14 @@ fun LazyRowExample() {
             Text(text = "Item #$it", modifier = Modifier.padding(20.dp))
         }
     }
+}
+
+@Composable
+fun CheckboxExample() {
+    var checked by remember { mutableStateOf(false) }
+
+    Checkbox(checked = checked, onCheckedChange = { checked = it })
+    Text(text = "Checkbox")
 }
 
 @Preview(showBackground = true)
