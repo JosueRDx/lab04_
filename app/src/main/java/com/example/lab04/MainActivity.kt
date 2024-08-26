@@ -13,8 +13,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Card
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
@@ -53,6 +55,7 @@ fun MainScreen() {
     ) {
         LazyRowExample()
         CheckboxExample()
+        DividerControl()
     }
 
 }
@@ -75,6 +78,12 @@ fun CheckboxExample() {
     Checkbox(checked = checked, onCheckedChange = { checked = it })
     Text(text = "Checkbox")
 }
+
+@Composable
+fun DividerControl() {
+    HorizontalDivider(thickness = 5.dp)
+}
+
 
 @Preview(showBackground = true)
 @Composable
