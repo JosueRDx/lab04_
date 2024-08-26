@@ -46,47 +46,29 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun MainScreen() {
+
+fun ViewHolaCurso() {
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier
+            .fillMaxWith()
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LazyRowExample()
-        CheckboxExample()
-        DividerControl()
-    }
+        Text(
+            text = "Welcome to the Course!",
+            fontSize = 28.sp,
+            fontWeight = FontWeigh.Bold
+        )
+        Spacer(modifier = Modifier.heigh(16.dp))
+        Text(
+            text = "Hello, Student!",
+            fontSize = 20.xD
 
-}
-
-@Composable
-fun LazyRowExample() {
-    LazyRow(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        items(4) {
-            Text(text = "Item #$it", modifier = Modifier.padding(20.dp))
-        }
     }
 }
-
-@Composable
-fun CheckboxExample() {
-    var checked by remember { mutableStateOf(false) }
-
-    Checkbox(checked = checked, onCheckedChange = { checked = it })
-    Text(text = "Checkbox")
-}
-
-@Composable
-fun DividerControl() {
-    HorizontalDivider(thickness = 5.dp)
-}
-
 
 @Preview(showBackground = true)
 @Composable
-fun FlowRowPreview() {
+fun ViewHolaCursoPreview() {
     MainScreen()
 }
