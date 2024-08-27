@@ -32,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,10 +46,45 @@ class MainActivity : ComponentActivity() {
         setContent {
             Lab04Theme {
                 //función a probar
-                ViewHolaCurso()
+                MainScreen()
             }
         }
     }
+}
+
+@Composable
+fun MainScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        CheckboxExample()
+        DividerControl()
+        ViewHolaCurso()
+    }
+
+}
+
+@Composable
+fun CheckboxExample() {
+    var checked by remember { mutableStateOf(false) }
+
+    Checkbox(checked = checked, onCheckedChange = { checked = it })
+    Text(
+        text = "Checkbox",
+        color = Color.Green
+    )
+}
+
+@Composable
+fun DividerControl() {
+    HorizontalDivider(
+        thickness = 10.dp,
+        color = Color.Blue
+    )
+
 }
 
 @Composable
@@ -74,6 +110,6 @@ fun ViewHolaCurso() {
 
 @Preview(showBackground = true)
 @Composable
-fun ViewHolaCursoPreview() {
-    ViewHolaCurso()
+fun FlowRowPreview() {
+    MainScreen()
 }
